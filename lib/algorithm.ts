@@ -26,7 +26,7 @@ export function calculateResults(answers: Answers): PartyResult[] {
 
       for (const question of area.questions) {
         const answer = answers[question.id];
-        if (!answer || answer === 0) continue; // skip "not sure"
+        if (!answer) continue; // skip "not sure" (0) and unanswered
 
         const stance = question.stances[partyId].score;
         scores.push(alignmentScore(answer, stance));
